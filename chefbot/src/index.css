@@ -52,3 +52,42 @@ button.btn{
   padding: 7px 15px;
   color: #fff;
 }
+.ingredients{
+  width: 75%;
+  margin: auto;
+  margin-top: 30px;
+}
+.ingredients-list{
+  margin-left: 40px;
+  margin-top: 20px;
+  color: #333;
+}
+.ingredients-list > li{
+  margin-top: 8px;
+}
+.get-recipe{
+  margin-top: 20px;
+  height: 15vh;
+  background-color: rgba(245, 245, 220, 0.675);
+  border-radius: 7px;
+  padding: 7px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.get-recipe > div{
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+}
+button.get-recipe-btn{
+  background-color: rgba(201, 138, 23, 0.426);
+  outline: none;
+  border: none;
+  /* padding: 15px 15px; */
+  padding:10px 20px ;
+  height: auto;
+  border-radius: 5px;
+}
