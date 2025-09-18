@@ -1,0 +1,4 @@
+1. edit the input bar and button(style)
+2. add the loading animation when the recipe is being generated
+3. by default the input bar to be in the centre, but when the user starts typing, the input bar should move up
+
