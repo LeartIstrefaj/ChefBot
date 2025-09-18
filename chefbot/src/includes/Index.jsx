@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Ingredients from '../components/Ingredients';
 import GenerateRecipe from '../components/GenerateRecipe';
+import { getRecipeFromMistral } from '../Ai';
 export default function Index() {
     const [ingredients, setIngredients] = useState([]);
-    const [recipeShown, setRecipeShown] = useState(false);
+    const [recipe, setRecipe] = useState("");
 
-    const toggleRecipe = () => {
-        setRecipeShown(prevRecipe => !prevRecipe);
+    async function getRecipe(){
+        // setRecipeShown(prevRecipe => !prevRecipe);
+        const generateRecipe = await getRecipeFromMistral(ingredients);
+        setRecipe(generateRecipe);
+        // console.log(generateRecipe);
     }
 
 
@@ -19,11 +23,11 @@ export default function Index() {
         <>
             <form action={addIngredient} className="form">
                 <input type="text" placeholder="Enter ingredients: e.g. Milk" className="form-control" name='ingredient' required />
-                <button className="btn" type="button">Add ingredient</button>
+                <button className="btn" type="submit">Add ingredient</button>
             </form>
 
-            {ingredients.length > 0 && <Ingredients ingredients={ingredients} toggleRecipe={toggleRecipe} />}
-            {recipeShown && <GenerateRecipe />}
+            {ingredients.length > 0 && <Ingredients ingredients={ingredients} getRecipe={getRecipe} />}
+            {recipe && <GenerateRecipe recipe={recipe} />}
             
         </>
     );
